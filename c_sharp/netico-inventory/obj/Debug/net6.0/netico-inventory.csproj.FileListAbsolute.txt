@@ -1,0 +1,15 @@
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.csproj.AssemblyReference.cache
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.GeneratedMSBuildEditorConfig.editorconfig
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.AssemblyInfoInputs.cache
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.AssemblyInfo.cs
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.csproj.CoreCompileInputs.cache
+/home/diaa/netico-inventory/c_sharp/netico-inventory/bin/Debug/net6.0/netico-inventory
+/home/diaa/netico-inventory/c_sharp/netico-inventory/bin/Debug/net6.0/netico-inventory.deps.json
+/home/diaa/netico-inventory/c_sharp/netico-inventory/bin/Debug/net6.0/netico-inventory.runtimeconfig.json
+/home/diaa/netico-inventory/c_sharp/netico-inventory/bin/Debug/net6.0/netico-inventory.dll
+/home/diaa/netico-inventory/c_sharp/netico-inventory/bin/Debug/net6.0/ref/netico-inventory.dll
+/home/diaa/netico-inventory/c_sharp/netico-inventory/bin/Debug/net6.0/netico-inventory.pdb
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.dll
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/ref/netico-inventory.dll
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.pdb
+/home/diaa/netico-inventory/c_sharp/netico-inventory/obj/Debug/net6.0/netico-inventory.genruntimeconfig.cache
