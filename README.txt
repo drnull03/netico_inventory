@@ -1,11 +1,4 @@
-
-
-
-
-
-
 *this is version 1.0 of netico inventory
-
 
 *to compile the c++ code please use the Makefile
 
@@ -15,5 +8,3 @@
 
 
 
-//todo list
-1.add getters and setters for version 1.1

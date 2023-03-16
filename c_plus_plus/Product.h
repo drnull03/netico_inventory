@@ -1,10 +1,10 @@
-#ifndef ITEM_H
-#define ITEM_H
+#ifndef PRODUCT_H
+#define PRODUCT_H
 
 //NOTEEEE  other classes will inherite this class 
 #include<iostream>
 using namespace std;
-class Item{
+class Product{
 private:
 //more properties will be added as needed
 //properties section
@@ -21,13 +21,23 @@ private:
 public:
 //constructor section
 
-Item();
-Item(string n,float p,string m,string b);
-Item(Item &other);
+Product();
+Product(string n,float p,string m,string b);
+Product(Product &other);
 
 //setters and getters section
-//for now there is no getters and setters because the constructor is sufficiant 
 
+//setters
+void setName(string N);
+void setPrice(float P);
+void setManufacturer(string M);
+void setBrand(string B);
+
+//getters
+string getName();
+float getPrice();
+string getManufacturer();
+string getBrand();
 
 //methods section
 
@@ -37,7 +47,7 @@ Item(Item &other);
 
 
 //deconstructor section
-
+~Product();
 
 };
 

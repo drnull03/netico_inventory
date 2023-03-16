@@ -1,5 +1,5 @@
 #include "Inventory.h"
-#include "Item.h"
+#include "Product.h"
 #include "Food.h"
 #include <iostream>
 using namespace std;
