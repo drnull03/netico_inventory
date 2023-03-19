@@ -1,4 +1,4 @@
-version 1.0
+'version 1.0
 
 doing the First assignment
 added some basic classes
@@ -9,10 +9,15 @@ added a bash zip script for making the zip file automatically
 added some note
 added the c# code
 
-version 1.1
+version 1.0.1
 
 add .gitignore folder so I can ignore the "bin" folders from being added to github repo everytime
 added a CHANGELOG.txt (this file) to easily keep trach of changes
 removing the todo list in readme to a separate file called TODO.txt
 removed the zip script 
 renaming the Item class to product class
+did the required work for the part 2
+added some getters and setters
+
+
+

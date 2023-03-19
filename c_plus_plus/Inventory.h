@@ -10,7 +10,7 @@ private:
     int capacity;
     int count;
     string location;
-   // Item** items;  this will be added in the future when the item class is done 
+   // Product** products;  this will be added in the future when the item class is done 
 
 
 
@@ -25,7 +25,17 @@ Inventory(int cap,string loc);
 Inventory(Inventory &other);
 
 //setters and getters section
-//for now there is no getters and setters because the constructor is sufficiant 
+
+//setters
+void setCapacity(int c);
+void setCount(int c);
+void setLocation(string l);
+
+//getters
+int getCapacity();
+int getCount();
+string getLocation();
+
 
 
 //methods section
@@ -36,7 +46,7 @@ Inventory(Inventory &other);
 
 
 //deconstructor section
-
+~Inventory();
 
 };
 

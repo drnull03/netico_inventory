@@ -8,7 +8,7 @@ class Food{
 private:
 //more properties will be added as needed
 //properties section
-   int expirationDate;
+   string category;
    string countryOfOrigin;
   
 
@@ -21,11 +21,18 @@ public:
 //constructor section
 
 Food();
-Food(int exp,string coo);
+Food(string c,string coo);
 Food(Food &other);
 
 //setters and getters section
-//for now there is no getters and setters because the constructor is sufficiant 
+
+//setters
+void setCategory(string c);
+void setCountryOfOrigin(string coo);
+
+//getters
+string getCategory();
+string getCountryOfOrigin();
 
 
 //methods section
@@ -36,7 +43,7 @@ Food(Food &other);
 
 
 //deconstructor section
-
+~Food();
 
 
 
