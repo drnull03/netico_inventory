@@ -1,6 +1,6 @@
 //made this separate todo list file
 
 
-1.for next time reimplement version 1.0.1 of this software using c_sharp and call 1.1
+1.still need to do it in c# sorry for the delay .
 2.add some deconstrutor functionalities
 

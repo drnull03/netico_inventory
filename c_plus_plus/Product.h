@@ -12,9 +12,8 @@ private:
     float price;
     string manufacturer;
     string brand;
-    string expDate;
-    string prodDate;
-    string color;
+    int quantity;
+    Product *next;
 
 
 
@@ -25,7 +24,7 @@ public:
 //constructor section
 
 Product();
-Product(string n,float p,string m,string b,string eD,string pD,string c);
+Product(string n,float p,string m,string b,int q,Product *N);
 Product(Product &other);
 
 //setters and getters section
@@ -35,30 +34,29 @@ void setName(string N);
 void setPrice(float P);
 void setManufacturer(string M);
 void setBrand(string B);
-void setExpDate(string eD);
-void setProdDate(string pD);
-void setColor(string c);
-
+void setNext(Product *);
+void setQuantity(int);
 
 //getters
 
-string getName();
-float getPrice();
-string getManufacturer();
-string getBrand();
-string getExpDate();
-string getProdDate();
-string getColor();
+string getName()const;
+float getPrice()const;
+string getManufacturer()const;
+string getBrand()const;
+int getQuantity()const;
+Product*   getNext()const;
 
 //methods section
+bool operator==(Product& other)const;
+bool operator!=(Product& other)const;
+friend ostream& operator<<(std::ostream&, Product&);
+friend istream& operator>>(std::istream&,Product&);
 
 
 
 
 
 
-//deconstructor section
-~Product();
 
 };
 

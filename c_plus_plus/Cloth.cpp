@@ -14,10 +14,41 @@ void Cloth::setMaterial(string m){material=m;}
 void Cloth::setType(string t){type=t;}
 
 //getters
-int Cloth::getQuality(){return quality;}
-string Cloth::getMaterial(){return material;}
-string Cloth::getType(){return type;}
+int Cloth::getQuality()const{return quality;}
+string Cloth::getMaterial()const{return material;}
+string Cloth::getType()const{return type;}
 
-//deconstructor section
-//empty for now
-Cloth::~Cloth(){}
+
+bool Cloth::operator==(Cloth &other)const{
+if(quality==other.quality && material==other.material && type==other.type)return true;
+else return false;
+
+}
+
+bool Cloth::operator!=(Cloth &other)const{
+
+    return !(*this==other);
+}
+
+ostream & operator<<(ostream &out,Cloth&C){
+out<<"printing Cloth information"<<endl;
+out<<"********************************"<<endl;
+out<<"quality:"<<C.quality<<"\t"<<"material:"<<C.material<<"\t"<<"type:"<<C.type<<endl;
+
+return out;
+
+
+}
+
+
+istream & operator>>(istream &in,Cloth&C){
+cout<<"please enter Cloth information in the following format quality material type"<<endl;
+
+in>>C.quality;
+
+in>>C.material;
+
+in>>C.type;
+
+return in;
+}

@@ -30,20 +30,21 @@ void setSize(int s);
 void setType(string t);
 
 //getters
-int getSize();
-string getType();
+int getSize()const;
+string getType()const;
 
 
 
 //methods section
+bool operator==(Electronic  &other)const;
+bool operator!=(Electronic &other)const;
+friend ostream& operator<<(std::ostream&,Electronic&);
+friend istream& operator>>(std::istream&,Electronic&);
 
 
 
 
 
-
-//deconstructor section
-~Electronic();
 
 };
 

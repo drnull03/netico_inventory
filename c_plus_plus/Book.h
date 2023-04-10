@@ -32,23 +32,22 @@ void setName(int n);
 void setCategory(string c);
 
 //getters
-int getPages();
-string getName();
-string getCategory();
+int getPages() const;
+string getName() const ;
+string getCategory() const ;
 
 
 
 //methods section
+bool operator==(Book&)const;
+bool operator!=(Book&)const;
+friend ostream& operator<<(std::ostream&,Book&);
+friend istream& operator>>(std::istream&,Book&);
 
 
-
-
-
-
-//deconstructor section
-~Book();
 
 };
+
 
 
 

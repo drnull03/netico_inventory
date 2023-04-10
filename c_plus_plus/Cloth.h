@@ -32,24 +32,24 @@ void setMaterial(string m);
 void setType(string t);
 
 //getters
-int getQuality();
-string getMaterial();
-string getType();
+int getQuality()const;
+string getMaterial()const;
+string getType()const;
 
 
 
 //methods section
 
+bool operator==(Cloth&)const;
+bool operator!=(Cloth&)const;
+friend ostream& operator<<(std::ostream&,Cloth&);
+friend istream& operator>>(std::istream&,Cloth&);
 
 
 
 
-
-//deconstructor section
-~Cloth();
 
 };
-
 
 
 

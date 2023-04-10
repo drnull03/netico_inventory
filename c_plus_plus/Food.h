@@ -31,19 +31,22 @@ void setCategory(string c);
 void setCountryOfOrigin(string coo);
 
 //getters
-string getCategory();
-string getCountryOfOrigin();
+string getCategory()  const;
+string getCountryOfOrigin()const;
 
 
 //methods section
 
 
+bool operator==( Food&)const;
+bool operator!=( Food&)const;
+friend ostream& operator<<(std::ostream&, Food&);
+friend istream& operator>>(std::istream&,Food&);
 
 
 
 
-//deconstructor section
-~Food();
+
 
 
 

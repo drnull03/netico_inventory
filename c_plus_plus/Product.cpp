@@ -6,9 +6,9 @@ using namespace std;
 
 
 //constructor implementation
-Product::Product():name(""),price(0.0),manufacturer("Unknown"),brand("Unknown"),expDate("000000"),prodDate("000000"),color(""){}
-Product::Product(string n,float p,string m,string b,string eD,string pD,string c):name(n),price(p),manufacturer(m),brand(b),expDate(eD),prodDate(pD),color(c){}
-Product::Product(Product &other):name(other.name),price(other.price),manufacturer(other.manufacturer),brand(other.brand),expDate(other.expDate),prodDate(other.prodDate),color(other.color){}
+Product::Product():name(""),price(0.0),manufacturer("Unknown"),brand("Unknown"),quantity(0),next(NULL){}
+Product::Product(string n,float p,string m,string b,int q,Product *N):name(n),price(p),manufacturer(m),brand(b),quantity(q),next(N){}
+Product::Product(Product &other):name(other.name),price(other.price),manufacturer(other.manufacturer),brand(other.brand),quantity(other.quantity),next(other.next){}
 
 
 //getters and setters 
@@ -18,25 +18,46 @@ void Product::setName(string N) {name=N;}
 void Product::setPrice(float P){price=P;}
 void Product::setManufacturer(string M){manufacturer=M;}
 void Product::setBrand(string B){brand=B;}
-void Product::setExpDate(string eD){expDate=eD;}
-void Product::setProdDate(string pD){prodDate=pD;}
-void Product::setColor(string c){color=c;}
-
-
+void Product::setQuantity(int Q){quantity=Q;}
+void Product::setNext(Product *N){next=N;}
 //getters
-string Product::getName(){return name;}
-float Product::getPrice(){return price;}
-string Product::getManufacturer(){return manufacturer;}
-string Product::getBrand(){return brand;}
-string Product::getExpDate(){return expDate;}
-string Product::getProdDate(){return prodDate;}
-string Product::getColor(){return color;}
+string Product::getName()const{return name;}
+float Product::getPrice()const{return price;}
+string Product::getManufacturer()const{return manufacturer;}
+string Product::getBrand()const{return brand;}
+int Product::getQuantity()const{return quantity;}
+Product *Product::getNext()const{return next;}
 
 
-//deconstructor
+bool Product::operator==(Product&other)const{
+    if(name==other.name && manufacturer==other.manufacturer && brand == other.brand && price == other.price)return true;
+    else return false;
+}
 
-//empty for now
-Product::~Product(){
+bool Product::operator!=(Product &other)const{
+return !(*this==other);
 
+}
+
+ostream& operator<<(std::ostream&out,Product&P){
+out<<"printing Product information"<<endl;
+out<<"********************************"<<endl;
+out<<"name:"<<P.name<<"\t"<<"price:"<<P.price<<"\t"<<"manufacturer:"<<P.manufacturer<<"\t"<<"Brand:"<<P.brand<<"\t quantity "<<P.quantity<<endl;
+
+return out;
+
+}
+
+istream& operator>>(std::istream&in,Product&P){
+cout<<"please enter Product information in the following format name price manufacturer brand quantity"<<endl;
+
+in>>P.name;
+
+in>>P.price;
+
+in>>P.manufacturer;
+in>>P.brand;
+in>>P.quantity;
+return in;
 
 }

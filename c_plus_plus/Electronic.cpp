@@ -13,10 +13,39 @@ void Electronic::setType(string t){type=t;}
 
 
 //getters
-int Electronic::getSize(){return size;}
-string Electronic::getType(){return type;}
+int Electronic::getSize()const{return size;}
+string Electronic::getType()const{return type;}
 
 
-//deconstructor section
-//empty for now
-Electronic::~Electronic(){}
+bool Electronic::operator==(Electronic  &other)const{
+    if(size==other.size && type==other.type)return true;
+    else return false;
+}
+
+bool Electronic::operator!=(Electronic &other)const{
+
+    return !(*this == other);
+}
+
+ostream& operator<<(std::ostream&out,Electronic&E){
+out<<"printing Electronic information"<<endl;
+out<<"********************************"<<endl;
+out<<"size:"<<E.size<<"\t"<<"type:"<<E.type<<endl;
+
+
+return out;
+
+}
+
+istream& operator>>(std::istream&in,Electronic&E){
+cout<<"please enter Electronic information in the following format  size type"<<endl;
+
+in>>E.size;
+
+in>>E.type;
+
+
+return in;
+
+
+}
