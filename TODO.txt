@@ -1,6 +1,5 @@
 //made this separate todo list file
 
 
-1.still need to do it in c# sorry for the delay .
-2.add some deconstrutor functionalities
+1.the c# project is depricated and will be removed soon
 

@@ -4,7 +4,7 @@
 using namespace std;
 
 // constructor section
-Book::Book() : pages(1), bookName("No Name"), category("Null") {price=0.0;name="";brand="";manufacturer="";}
+Book::Book() : pages(1), bookName("No Name"), category("Null") {price=0.0;name="Null";brand="";manufacturer="Null";}
 Book::Book(int p, string n, string c,string na,float pr,string bra,string manu) : pages(p), bookName(n), category(c) {
     name=na;
     price=pr;
