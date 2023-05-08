@@ -1,54 +1,79 @@
 #include "Book.h"
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-//constructor section
-Book::Book():pages(1),name("No Name"),category("Null"){}
-Book::Book(int p,string n,string c):pages(p), name(n),category(c){}
-Book::Book(Book &other):pages(other.pages),name(other.name),category(other.category){}
-
-//setters
-void Book::setPages(int p){pages=p;}
-void Book::setName(int n){name=n;}
-void Book::setCategory(string c){category=c;}
-
-//getters
-int Book::getPages()const{return pages;}
-string Book::getName()const{return name;}
-string Book::getCategory()const{return category;}
-
-//methods
-bool Book::operator==(Book &other)const {
-
-if(pages==other.pages && category==other.category && name==other.name )return true;
-else return false;
-
+// constructor section
+Book::Book() : pages(1), bookName("No Name"), category("Null") {price=0.0;name="";brand="";manufacturer="";}
+Book::Book(int p, string n, string c,string na,float pr,string bra,string manu) : pages(p), bookName(n), category(c) {
+    name=na;
+    price=pr;
+    brand=bra;
+    manufacturer=manu;
+}
+Book::Book(Book &other) : pages(other.pages), bookName(other.bookName), category(other.category) {
+    name=other.name;
+    price=other.price;
+    brand=other.brand;
+    manufacturer=other.manufacturer;
 }
 
+// setters
+void Book::setPages(int p) { pages = p; }
+void Book::setName(int n) { bookName = n; }
+void Book::setCategory(string c) { category = c; }
 
-bool Book::operator!=(Book &other)const{
-    if(!(*this==other)) return true;
-    else return false;
+// getters
+int Book::getPages() const { return pages; }
+string Book::getName() const { return bookName; }
+string Book::getCategory() const { return category; }
+
+// methods
+bool Book::operator==(Book &other) const
+{
+
+    if (pages == other.pages && category == other.category && bookName == other.bookName && name==other.name &&price==other.price && brand==other.brand && manufacturer == other.manufacturer)
+        return true;
+    else
+        return false;
 }
 
-
-ostream& operator<<(std::ostream&out,Book&B){
-out<<"printing Book information"<<endl;
-out<<"********************************"<<endl;
-out<<"name:"<<B.name<<"\t"<<"pages:"<<B.pages<<"\t"<<"category:"<<B.category<<endl;
-
-return out;
+bool Book::operator!=(Book &other) const
+{
+    if (!(*this == other))
+        return true;
+    else
+        return false;
 }
 
-istream& operator>>(istream&in,Book&B){
-cout<<"please enter BOOK information in the following format name pages category"<<endl;
+ostream &operator<<(std::ostream &out, Book &B)
+{
+    out << "printing Book information" << endl;
+    out << "********************************" << endl;
+    out << "bookName:" << B.bookName << "\t"
+        << "pages:" << B.pages << "\t"
+        << "category:" << B.category << "\t"
+        <<"name:"<<B.name << "\t"
+        <<"price:" << B.price << "\t"
+        << "brand:" << B.brand << "\t"
+        <<"manufacturer"<<B.manufacturer<<endl;
 
-in>>B.name;
+    return out;
+}
 
-in>>B.pages;
+istream &operator>>(istream &in, Book &B)
+{
+    cout << "please enter BOOK information in the following format name pages category" << endl;
 
-in>>B.category;
+    in >> B.bookName;
 
-return in;
+    in >> B.pages;
+
+    in >> B.category;
+    in>>B.name;
+    in>>B.price;
+    in>>B.brand;
+    in>>B.manufacturer;
+
+    return in;
 }

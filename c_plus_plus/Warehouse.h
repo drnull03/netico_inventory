@@ -1,58 +1,42 @@
 #ifndef Warehouse_H
 #define Warehouse_H
 
-#include<iostream>
+#include <iostream>
 #include "ProductList.h"
-#include "Product.h"
+#include "Node.h"
 using namespace std;
-class Warehouse{
+class Warehouse
+{
 private:
-//more properties will be added as needed
-//properties section
-    
-   
+    // more properties will be added as needed
+    // properties section
+
     string location;
-   ProductList products;
+    ProductList products;
 
-
-
-//hidden methods section
-
+    // hidden methods section
 
 public:
-//constructor section
+    // constructor section
 
-Warehouse();
-Warehouse(string loc,ProductList &PL);
+    Warehouse();
+    Warehouse(string loc, ProductList &PL);
 
+    // setters and getters section
 
-//setters and getters section
+    // setters
 
-//setters
+    void setLocation(string l);
 
-void setLocation(string l);
+    // getters
 
-//getters
+    string getLocation();
 
-string getLocation();
+    // methods section
 
-
-
-//methods section
-
-
-friend ostream& operator<<(std::ostream&,Warehouse &);
-ProductList &operator+(Product &);
-ProductList &operator-(Product &);
-
-
-
-
+    friend ostream &operator<<(std::ostream &, Warehouse &);
+    ProductList &operator+(Node &);
+    ProductList &operator-(Node &);
 };
-
-
-
-
-
 
 #endif

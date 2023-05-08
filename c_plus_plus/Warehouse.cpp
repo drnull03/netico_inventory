@@ -1,52 +1,57 @@
 #include "Warehouse.h"
-#include<iostream>
+#include <iostream>
 #include "ProductList.h"
 using namespace std;
 
-//constructor section
-Warehouse::Warehouse():location(" "),products(){}
-Warehouse::Warehouse(string loc,ProductList &PL):location(loc),products(PL){}
+// constructor section
+Warehouse::Warehouse() : location(" "), products() {}
+Warehouse::Warehouse(string loc, ProductList &PL) : location(loc), products(PL) {}
 
+// setters
 
-//setters
+void Warehouse::setLocation(string l) { location = l; }
 
-void Warehouse::setLocation(string l){location=l;}
+// getters
 
-//getters
+string Warehouse::getLocation() { return location; }
 
-string Warehouse::getLocation(){return location;}
+ProductList &Warehouse::operator+(Node &P)
+{
 
-ProductList& Warehouse::operator+(Product&P){
-
-    int n=products.index_of(P);
-    if(n==-1) {
-        products.add_at(0,P);
-    }else{
-Product *current=&products[n];
-current->setQuantity(current->getQuantity()+1);
+    int n = products.index_of(P);
+    if (n == -1)
+    {
+        products.add_at(0, P);
+    }
+    else
+    {
+        Node *current = &products[n];
+        current->setQuantity(current->getQuantity() + 1);
     }
     return products;
 }
 
-ProductList& Warehouse::operator-(Product&P){
- int n=products.index_of(P);
-    if(n==-1) {
+ProductList &Warehouse::operator-(Node &P)
+{
+    int n = products.index_of(P);
+    if (n == -1)
+    {
         products.remove_at(n);
-    }else{
-Product *current=&products[n];
-current->setQuantity(current->getQuantity()-1);
+    }
+    else
+    {
+        Node *current = &products[n];
+        current->setQuantity(current->getQuantity() - 1);
     }
     return products;
 }
 
+ostream &operator<<(std::ostream &out, Warehouse &wh)
+{
 
+    out << wh.getLocation() << endl;
+    out << "now printing the list of products" << endl;
+    out << wh.products << endl;
 
-ostream & operator<<(std::ostream &out,Warehouse&wh){
-
-
-out <<wh.getLocation()<<endl;
-out<<"now printing the list of products"<<endl;
-out<<wh.products<<endl;
-
-return out;
+    return out;
 }
