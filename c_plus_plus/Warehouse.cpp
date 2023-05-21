@@ -1,11 +1,11 @@
 #include "Warehouse.h"
 #include <iostream>
-#include "ProductList.h"
+
 using namespace std;
 
 // constructor section
 Warehouse::Warehouse() : location(" "), products() {}
-Warehouse::Warehouse(string loc, ProductList &PL) : location(loc), products(PL) {}
+Warehouse::Warehouse(string loc, ProductList<Product *> &PL) : location(loc), products(PL) {}
 
 // setters
 
@@ -15,23 +15,23 @@ void Warehouse::setLocation(string l) { location = l; }
 
 string Warehouse::getLocation() { return location; }
 
-ProductList &Warehouse::operator+(Node &P)
+ProductList<Product *> &Warehouse::operator+(Product *P)
 {
 
     int n = products.index_of(P);
     if (n == -1)
     {
-        products.add_at(0, P);
+        products.add_at(0,1 , P);
     }
     else
     {
-        Node *current = &products[n];
+        Node<Product *> *current = &products[n];
         current->setQuantity(current->getQuantity() + 1);
     }
     return products;
 }
 
-ProductList &Warehouse::operator-(Node &P)
+ProductList<Product *> &Warehouse::operator-(Product *P)
 {
     int n = products.index_of(P);
     if (n == -1)
@@ -40,12 +40,12 @@ ProductList &Warehouse::operator-(Node &P)
     }
     else
     {
-        Node *current = &products[n];
+        Node<Product *> *current = &products[n];
         current->setQuantity(current->getQuantity() - 1);
     }
     return products;
 }
-
+/*
 ostream &operator<<(std::ostream &out, Warehouse &wh)
 {
 
@@ -54,4 +54,4 @@ ostream &operator<<(std::ostream &out, Warehouse &wh)
     out << wh.products << endl;
 
     return out;
-}
+}*/

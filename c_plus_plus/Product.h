@@ -42,8 +42,8 @@ public:
    
 
     // methods section
-    bool operator==(Product &other) const;
-    bool operator!=(Product &other) const;
+    virtual bool operator==(Product &other) const;
+    virtual bool operator!=(Product &other) const;
     friend ostream &operator<<(std::ostream &, Product &);
     friend istream &operator>>(std::istream &, Product &);
 };

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "ProductList.h"
-#include "Node.h"
+
 using namespace std;
 class Warehouse
 {
@@ -12,7 +12,7 @@ private:
     // properties section
 
     string location;
-    ProductList products;
+    ProductList<Product *> products;
 
     // hidden methods section
 
@@ -20,7 +20,7 @@ public:
     // constructor section
 
     Warehouse();
-    Warehouse(string loc, ProductList &PL);
+    Warehouse(string loc, ProductList<Product *> &PL);
 
     // setters and getters section
 
@@ -35,8 +35,8 @@ public:
     // methods section
 
     friend ostream &operator<<(std::ostream &, Warehouse &);
-    ProductList &operator+(Node &);
-    ProductList &operator-(Node &);
+    ProductList<Product *> &operator+(Product *);
+    ProductList<Product *> &operator-(Product *);
 };
 
 #endif
