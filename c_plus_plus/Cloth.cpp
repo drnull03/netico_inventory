@@ -4,20 +4,23 @@
 using namespace std;
 
 // constructor section
-Cloth::Cloth() : quality(-1), material("made of nothing"), type("Null") {
-    price=0.0;name="Null";brand="";manufacturer="Null";
+Cloth::Cloth() : quality(5), material("Unknown"), type("Unknown")
+{
+    price = 0.0;
+    brand = "Unknown";
+    manufacturer = "Unknown";
 }
-Cloth::Cloth(int q, string m, string t,string na,float pr,string bra,string manu) : quality(q), material(m), type(t) {
-    name=na;
-    price=pr;
-    brand=bra;
-    manufacturer=manu;
+Cloth::Cloth(int q, string m, string t, float pr, string bra, string manu) : quality(q), material(m), type(t)
+{
+    price = pr;
+    brand = bra;
+    manufacturer = manu;
 }
-Cloth::Cloth(Cloth &other) : quality(other.quality), material(other.material), type(other.type) {
-    name=other.name;
-    price=other.price;
-    brand=other.brand;
-    manufacturer=other.manufacturer;
+Cloth::Cloth(Cloth &other) : quality(other.quality), material(other.material), type(other.type)
+{
+    price = other.price;
+    brand = other.brand;
+    manufacturer = other.manufacturer;
 }
 
 // setters
@@ -32,7 +35,7 @@ string Cloth::getType() const { return type; }
 
 bool Cloth::operator==(Cloth &other) const
 {
-    if (quality == other.quality && material == other.material && type == other.type && name==other.name &&price==other.price && brand==other.brand && manufacturer == other.manufacturer)
+    if (quality == other.quality && material == other.material && type == other.type && price == other.price && brand == other.brand && manufacturer == other.manufacturer)
         return true;
     else
         return false;
@@ -48,13 +51,12 @@ ostream &operator<<(ostream &out, Cloth &C)
 {
     out << "printing Cloth information" << endl;
     out << "********************************" << endl;
-    out << "quality:" << C.quality << "\t"
-        << "material:" << C.material << "\t"
-        << "type:" << C.type << endl
-        <<"name:"<<C.name << "\t"
-        <<"price:" << C.price << "\t"
-        << "brand:" << C.brand << "\t"
-        <<"manufacturer"<<C.manufacturer<<endl;
+    out << "quality:" << C.quality << " *** "
+        << "material:" << C.material << " *** "
+        << "type:" << C.type << " *** "
+        << "price:" << C.price << " *** "
+        << "brand:" << C.brand << " *** "
+        << "manufacturer:" << C.manufacturer << endl;
 
     return out;
 }
@@ -68,10 +70,9 @@ istream &operator>>(istream &in, Cloth &C)
     in >> C.material;
 
     in >> C.type;
-    in>>C.name;
-    in>>C.price;
-    in>>C.brand;
-    in>>C.manufacturer;
+    in >> C.price;
+    in >> C.brand;
+    in >> C.manufacturer;
 
     return in;
 }

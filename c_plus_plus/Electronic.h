@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Product.h"
 using namespace std;
-class Electronic:public Product
+class Electronic : public Product
 {
 private:
    // properties section
@@ -18,7 +18,7 @@ public:
    // constructor section
 
    Electronic();
-   Electronic(int s, string t,string na,float pr,string bra,string manu);
+   Electronic(int s, string t, float pr, string bra, string manu);
    Electronic(Electronic &other);
 
    // setters and getters section

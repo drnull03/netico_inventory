@@ -18,7 +18,7 @@ public:
     // constructor section
 
     Book();
-    Book(int p, string n, string c,string na,float pr,string bra,string manu);
+    Book(int p, string n, string c,  float pr, string bra, string manu);
     Book(Book &other);
 
     // setters and getters section

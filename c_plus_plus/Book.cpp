@@ -4,18 +4,23 @@
 using namespace std;
 
 // constructor section
-Book::Book() : pages(1), bookName("No Name"), category("Null") {price=0.0;name="Null";brand="";manufacturer="Null";}
-Book::Book(int p, string n, string c,string na,float pr,string bra,string manu) : pages(p), bookName(n), category(c) {
-    name=na;
-    price=pr;
-    brand=bra;
-    manufacturer=manu;
+Book::Book() : pages(10), bookName("No Name"), category("general")
+{
+    price = 0.0;
+    brand = "Unknown";
+    manufacturer = "Unknown";
 }
-Book::Book(Book &other) : pages(other.pages), bookName(other.bookName), category(other.category) {
-    name=other.name;
-    price=other.price;
-    brand=other.brand;
-    manufacturer=other.manufacturer;
+Book::Book(int p, string n, string c, float pr, string bra, string manu) : pages(p), bookName(n), category(c)
+{
+    price = pr;
+    brand = bra;
+    manufacturer = manu;
+}
+Book::Book(Book &other) : pages(other.pages), bookName(other.bookName), category(other.category)
+{
+    price = other.price;
+    brand = other.brand;
+    manufacturer = other.manufacturer;
 }
 
 // setters
@@ -32,7 +37,7 @@ string Book::getCategory() const { return category; }
 bool Book::operator==(Book &other) const
 {
 
-    if (pages == other.pages && category == other.category && bookName == other.bookName && name==other.name &&price==other.price && brand==other.brand && manufacturer == other.manufacturer)
+    if (pages == other.pages && category == other.category && bookName == other.bookName && price == other.price && brand == other.brand && manufacturer == other.manufacturer)
         return true;
     else
         return false;
@@ -50,13 +55,12 @@ ostream &operator<<(std::ostream &out, Book &B)
 {
     out << "printing Book information" << endl;
     out << "********************************" << endl;
-    out << "bookName:" << B.bookName << "\t"
-        << "pages:" << B.pages << "\t"
-        << "category:" << B.category << "\t"
-        <<"name:"<<B.name << "\t"
-        <<"price:" << B.price << "\t"
-        << "brand:" << B.brand << "\t"
-        <<"manufacturer"<<B.manufacturer<<endl;
+    out << "bookName:" << B.bookName << " *** "
+        << "pages:" << B.pages << " *** "
+        << "category:" << B.category << " *** "
+        << "price:" << B.price << " *** "
+        << "brand:" << B.brand << " *** "
+        << "manufacturer: " << B.manufacturer << endl;
 
     return out;
 }
@@ -70,10 +74,9 @@ istream &operator>>(istream &in, Book &B)
     in >> B.pages;
 
     in >> B.category;
-    in>>B.name;
-    in>>B.price;
-    in>>B.brand;
-    in>>B.manufacturer;
+    in >> B.price;
+    in >> B.brand;
+    in >> B.manufacturer;
 
     return in;
 }

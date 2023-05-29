@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class Food: public Product
+class Food : public Product
 {
 private:
    // more properties will be added as needed
@@ -18,7 +18,7 @@ public:
    // constructor section
 
    Food();
-   Food(string c, string coo,string na,float pr,string bra,string manu);
+   Food(string c, string coo,float pr, string bra, string manu);
    Food(Food &other);
 
    // setters and getters section

@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Product.h"
 using namespace std;
-class Cloth :public Product
+class Cloth : public Product
 {
 private:
     // properties section
@@ -19,7 +19,7 @@ public:
     // constructor section
 
     Cloth();
-    Cloth(int q, string m, string t,string na,float pr,string bra,string manu);
+    Cloth(int q, string m, string t, float pr, string bra, string manu);
     Cloth(Cloth &other);
 
     // setters and getters section

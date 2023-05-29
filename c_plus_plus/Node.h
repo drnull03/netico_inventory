@@ -12,64 +12,82 @@ private:
     Node<T> *next;
 
 public:
- friend ostream &operator<<(std::ostream &out, Node<T> &P){
-  out << "printing Node information" << endl;
-    out << "********************************" << endl;
-    out<<"Product Information"<<P.product<<endl;
-    out<<"quantity"<<P.quantity << endl;
+    friend ostream &operator<<(std::ostream &out, Node<T> &P)
+    {
+        out << "printing Node information" << endl;
+        out << "********************************" << endl;
+        out << "quantity " << P.quantity << endl;
+        out << *(P.product);
 
-    return out;
-
- }
+        return out;
+    }
     Node<T>();
-  //  Node<T>(int q, Node<T> *N,T p):quantity(q),next(new Node<T>(*N)),product(new T(p)){}
-   // Node<T>(Node<T> &other) :  quantity(other.quantity), next(new Node<T>(*(other.next))),product(new T(&(other.product))) {}
+    Node<T>(int q, Node<T> *N,T p){ setNode(p, q, N);}
+   Node<T>(const Node<T> *other) {setNode(other->data, other->q, NULL);}
 
-
+    void setNode(T,int,Node<T> *);
     void setQuantity(int q);
     void setNext(Node<T> *);
-    void setProduct(T );
+    void setProduct(T);
 
     T getProduct() const;
     int getQuantity() const;
-    Node<T>* getNext() const;
+    Node<T> *getNext() const;
+
 
     bool operator==(Node<T> &other) const;
     bool operator!=(Node<T> &other) const;
-   
-   // friend istream &operator>>(std::istream &, Node &);
-   
+
+    // friend istream &operator>>(std::istream &, Node &);
 };
 
 #endif
 
-
-
-
-
-
-
 // constructor implementation
-template<class T> Node<T>::Node() : quantity(1), next(NULL) {
-     
-     //product->setName("Unknown");
-}
+template <class T>
+Node<T>::Node() : quantity(1), next(NULL)
+{
 
+     //product->setName("Unknown");
+T f;
+product=f;
+quantity=1;
+next=NULL;
+    
+}
 
 // getters and setters
 
 // setters
 
-template<class T>void  Node<T>::setQuantity(int Q) { quantity = Q; }
-template<class T>void  Node<T>::setNext(Node<T> *N) { next = N; }
-template<class T>void  Node<T>::setProduct(T P) { product = P; }
+template <class T>
+void Node<T>::setQuantity(int Q) { 
+if(Q<0){
+    quantity=1;
+}else{quantity=Q;}
+
+ }
+ template <class T> void Node<T>::setNode(T d, int q, Node<T>* n){
+    setProduct(d);
+    setQuantity(q);
+    setNext(n);
+
+ }
+template <class T>
+void Node<T>::setNext(Node<T> *N) { next = N; }
+template <class T>
+void Node<T>::setProduct(T P) { product = P; }
 // getters
 
-template<class T>int Node<T>::getQuantity() const { return quantity; }
-template<class T>Node<T> *Node<T>::getNext() const { return next; }
-template<class T>T Node<T>::getProduct() const { return product; } 
+template <class T>
+int Node<T>::getQuantity() const { return quantity; }
+template <class T>
+Node<T> *Node<T>::getNext() const { return next; }
+template <class T>
+T Node<T>::getProduct() const { return product; }
 
-template<class T>bool Node<T>::operator==(Node<T> &other) const
+template <class T>
+bool Node<T>::operator==(Node<T> &other) const
 {
     if (other.quantity == quantity && other.next == next && other.product == product)
         return true;
@@ -77,7 +95,8 @@ template<class T>bool Node<T>::operator==(Node<T> &other) const
         return false;
 }
 
-template<class T>bool Node<T>::operator!=(Node &other) const
+template <class T>
+bool Node<T>::operator!=(Node &other) const
 {
     return !(*this == other);
 }
@@ -88,8 +107,7 @@ template<class T>bool Node<T>::operator!=(Node &other) const
 {
     cout << "please enter Node information in the following format name price manufacturer brand quantity" << endl;
 
-    
+
     in >> P.quantity;
     return in;
 }*/
-

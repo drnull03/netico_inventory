@@ -27,7 +27,7 @@ public:
     // setters
 
     void setLocation(string l);
-
+    void setList(ProductList<Product *>&l);
     // getters
 
     string getLocation();

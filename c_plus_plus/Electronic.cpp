@@ -4,20 +4,23 @@
 using namespace std;
 
 // constructor section
-Electronic::Electronic() : size(-1), type("Null") {
-    price=0.0;name="Null";brand="";manufacturer="Null";
+Electronic::Electronic() : size(40), type("Unknown type")
+{
+    price = 0.0;
+    brand = "Unknown";
+    manufacturer = "Unknown";
 }
-Electronic::Electronic(int s, string t,string na,float pr,string bra,string manu) : size(s), type(t) {
-    name=na;
-    price=pr;
-    brand=bra;
-    manufacturer=manu;
+Electronic::Electronic(int s, string t, float pr, string bra, string manu) : size(s), type(t)
+{
+    price = pr;
+    brand = bra;
+    manufacturer = manu;
 }
-Electronic::Electronic(Electronic &other) : size(other.size), type(other.type) {
-     name=other.name;
-    price=other.price;
-    brand=other.brand;
-    manufacturer=other.manufacturer;
+Electronic::Electronic(Electronic &other) : size(other.size), type(other.type)
+{
+    price = other.price;
+    brand = other.brand;
+    manufacturer = other.manufacturer;
 }
 // setters
 void Electronic::setSize(int s) { size = s; }
@@ -29,7 +32,7 @@ string Electronic::getType() const { return type; }
 
 bool Electronic::operator==(Electronic &other) const
 {
-    if (size == other.size && type == other.type && name==other.name &&price==other.price && brand==other.brand && manufacturer == other.manufacturer)
+    if (size == other.size && type == other.type && price == other.price && brand == other.brand && manufacturer == other.manufacturer)
         return true;
     else
         return false;
@@ -45,12 +48,11 @@ ostream &operator<<(std::ostream &out, Electronic &E)
 {
     out << "printing Electronic information" << endl;
     out << "********************************" << endl;
-    out << "size:" << E.size << "\t"
-        << "type:" << E.type 
-        <<"name:"<<E.name << "\t"
-        <<"price:" << E.price << "\t"
-        << "brand:" << E.brand << "\t"
-        <<"manufacturer"<<E.manufacturer<<endl;
+    out << "size:" << E.size << " *** "
+        << "type:" << E.type<<" *** "
+        << "price:" << E.price << " *** "
+        << "brand:" << E.brand << " *** "
+        << "manufacturer:" << E.manufacturer << endl;
 
     return out;
 }
@@ -62,10 +64,9 @@ istream &operator>>(std::istream &in, Electronic &E)
     in >> E.size;
 
     in >> E.type;
-      in>>E.name;
-    in>>E.price;
-    in>>E.brand;
-    in>>E.manufacturer;
+    in >> E.price;
+    in >> E.brand;
+    in >> E.manufacturer;
 
     return in;
 }
