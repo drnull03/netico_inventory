@@ -4,11 +4,12 @@
 using namespace std;
 
 // constructor section
-Warehouse::Warehouse() : location("Unknown"), products() {}
-Warehouse::Warehouse(string loc, ProductList<Product *> &PL) : location(loc), products(PL) {}
+Warehouse::Warehouse() : location("Unknown"), products(),name("No name") {}
+Warehouse::Warehouse(string loc,string n, ProductList<Product *> &PL) : location(loc), products(PL) ,name(n){}
 
 // setters
 
+void Warehouse::setName(string n) {name=n;}
 void Warehouse::setLocation(string l) { location = l; }
 void Warehouse::setList(ProductList<Product *>&l){
 products=l;
@@ -18,6 +19,7 @@ products=l;
 // getters
 
 string Warehouse::getLocation() { return location; }
+string Warehouse::getName() { return name; }
 
 ProductList<Product *> &Warehouse::operator+(Product *P)
 {
@@ -25,10 +27,12 @@ ProductList<Product *> &Warehouse::operator+(Product *P)
     int n = products.index_of(P);
     if (n == -1)
     {
+       
         products.add_at(0, 1, P);
     }
     else
     {
+
         Node<Product *> *current = &products[n];
         current->setQuantity(current->getQuantity() + 1);
     }
@@ -56,7 +60,7 @@ ProductList<Product *> &Warehouse::operator-(Product *P)
 ostream &operator<<(std::ostream &out, Warehouse &wh)
 {
 
-    out << wh.getLocation() << endl;
+    out <<"Location:" <<wh.getLocation() << endl;
     out << "now printing the list of products" << endl;
     out << wh.products << endl;
 

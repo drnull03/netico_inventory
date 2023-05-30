@@ -10,7 +10,7 @@ protected:
     // more properties will be added as needed
     // properties section
     float price;
-    string manufacturer;
+    string type;
     string brand;
 
     // hidden methods section
@@ -19,7 +19,7 @@ public:
     // constructor section
 
     Product();
-    Product(float p, string m, string b);
+    Product(float p, string t, string b);
     Product(Product &other);
 
     // setters and getters section
@@ -27,18 +27,18 @@ public:
     // setters
 
     void setPrice(float P);
-    void setManufacturer(string M);
+    void setType(string T);
     void setBrand(string B);
 
     // getters
 
-    float getPrice() const;
-    string getManufacturer() const;
-    string getBrand() const;
+    float getPrice();
+    string getType() ;
+    string getBrand() ;
 
     // methods section
-    virtual bool operator==(Product &other) const;
-    virtual bool operator!=(Product &other) const;
+    virtual bool operator==(Product &other) ;
+    virtual bool operator!=(Product &other);
     friend ostream &operator<<(std::ostream &, Product &);
     friend istream &operator>>(std::istream &, Product &);
 };

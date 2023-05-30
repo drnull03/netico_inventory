@@ -4,44 +4,44 @@
 using namespace std;
 
 // constructor section
-Cloth::Cloth() : quality(5), material("Unknown"), type("Unknown")
+Cloth::Cloth() : quality(5), material("Unknown")
 {
     price = 0.0;
     brand = "Unknown";
-    manufacturer = "Unknown";
+    type = "Unknown";
 }
-Cloth::Cloth(int q, string m, string t, float pr, string bra, string manu) : quality(q), material(m), type(t)
+Cloth::Cloth(int q, string m, float pr, string bra, string manu) : quality(q), material(m)
 {
     price = pr;
     brand = bra;
-    manufacturer = manu;
+    type = manu;
 }
-Cloth::Cloth(Cloth &other) : quality(other.quality), material(other.material), type(other.type)
+Cloth::Cloth(Cloth &other) : quality(other.quality), material(other.material)
 {
     price = other.price;
     brand = other.brand;
-    manufacturer = other.manufacturer;
+    type = other.type;
 }
 
 // setters
 void Cloth::setQuality(int q) { quality = q; }
 void Cloth::setMaterial(string m) { material = m; }
-void Cloth::setType(string t) { type = t; }
+
 
 // getters
-int Cloth::getQuality() const { return quality; }
-string Cloth::getMaterial() const { return material; }
-string Cloth::getType() const { return type; }
 
-bool Cloth::operator==(Cloth &other) const
+string Cloth::getMaterial()  { return material; }
+
+
+bool Cloth::operator==(Cloth &other) 
 {
-    if (quality == other.quality && material == other.material && type == other.type && price == other.price && brand == other.brand && manufacturer == other.manufacturer)
+    if (quality == other.quality && material == other.material  && price == other.price && brand == other.brand && type == other.type)
         return true;
     else
         return false;
 }
 
-bool Cloth::operator!=(Cloth &other) const
+bool Cloth::operator!=(Cloth &other) 
 {
 
     return !(*this == other);
@@ -53,26 +53,24 @@ ostream &operator<<(ostream &out, Cloth &C)
     out << "********************************" << endl;
     out << "quality:" << C.quality << " *** "
         << "material:" << C.material << " *** "
-        << "type:" << C.type << " *** "
         << "price:" << C.price << " *** "
         << "brand:" << C.brand << " *** "
-        << "manufacturer:" << C.manufacturer << endl;
+        << "type:" << C.type << endl;
 
     return out;
 }
 
 istream &operator>>(istream &in, Cloth &C)
 {
-    cout << "please enter Cloth information in the following format quality material type" << endl;
+    cout << "please enter Cloth information in the following format (quality material price brand type)" << endl;
 
     in >> C.quality;
 
     in >> C.material;
 
-    in >> C.type;
     in >> C.price;
     in >> C.brand;
-    in >> C.manufacturer;
+    in >> C.type;
 
     return in;
 }

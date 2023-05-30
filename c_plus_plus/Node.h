@@ -23,20 +23,20 @@ public:
     }
     Node<T>();
     Node<T>(int q, Node<T> *N,T p){ setNode(p, q, N);}
-   Node<T>(const Node<T> *other) {setNode(other->data, other->q, NULL);}
+   Node<T>(const Node<T> *other) {setNode(other->product, other->quantity, NULL);}
 
     void setNode(T,int,Node<T> *);
     void setQuantity(int q);
     void setNext(Node<T> *);
     void setProduct(T);
 
-    T getProduct() const;
-    int getQuantity() const;
-    Node<T> *getNext() const;
+    T getProduct() ;
+    int getQuantity() ;
+    Node<T> *getNext() ;
 
 
-    bool operator==(Node<T> &other) const;
-    bool operator!=(Node<T> &other) const;
+    bool operator==(Node<T> &other) ;
+    bool operator!=(Node<T> &other) ;
 
     // friend istream &operator>>(std::istream &, Node &);
 };
@@ -80,14 +80,15 @@ void Node<T>::setProduct(T P) { product = P; }
 // getters
 
 template <class T>
-int Node<T>::getQuantity() const { return quantity; }
+int Node<T>::getQuantity()  { return quantity; }
 template <class T>
-Node<T> *Node<T>::getNext() const { return next; }
+Node<T> *Node<T>::getNext()  { return next; }
 template <class T>
-T Node<T>::getProduct() const { return product; }
+T Node<T>::getProduct()  { 
+    return product; }
 
 template <class T>
-bool Node<T>::operator==(Node<T> &other) const
+bool Node<T>::operator==(Node<T> &other) 
 {
     if (other.quantity == quantity && other.next == next && other.product == product)
         return true;
@@ -96,7 +97,7 @@ bool Node<T>::operator==(Node<T> &other) const
 }
 
 template <class T>
-bool Node<T>::operator!=(Node &other) const
+bool Node<T>::operator!=(Node &other) 
 {
     return !(*this == other);
 }

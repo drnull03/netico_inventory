@@ -11,7 +11,7 @@ private:
 
     int quality; // from 1 to 10(max quality)
     string material;
-    string type;
+
 
     // hidden methods section
 
@@ -19,7 +19,7 @@ public:
     // constructor section
 
     Cloth();
-    Cloth(int q, string m, string t, float pr, string bra, string manu);
+    Cloth(int q, string m, float pr, string bra, string manu);
     Cloth(Cloth &other);
 
     // setters and getters section
@@ -27,17 +27,17 @@ public:
     // setters
     void setQuality(int q);
     void setMaterial(string m);
-    void setType(string t);
+
 
     // getters
-    int getQuality() const;
-    string getMaterial() const;
-    string getType() const;
+    int getQuality() ;
+    string getMaterial() ;
+
 
     // methods section
 
-    bool operator==(Cloth &) const;
-    bool operator!=(Cloth &) const;
+    bool operator==(Cloth &) ;
+    bool operator!=(Cloth &) ;
     friend ostream &operator<<(std::ostream &, Cloth &);
     friend istream &operator>>(std::istream &, Cloth &);
 };

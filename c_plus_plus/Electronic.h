@@ -10,7 +10,7 @@ private:
    // properties section
 
    int size; // from 1 to 100
-   string type;
+   
 
    // hidden methods section
 
@@ -18,7 +18,7 @@ public:
    // constructor section
 
    Electronic();
-   Electronic(int s, string t, float pr, string bra, string manu);
+   Electronic(int s, float pr, string bra, string manu);
    Electronic(Electronic &other);
 
    // setters and getters section
@@ -28,12 +28,12 @@ public:
    void setType(string t);
 
    // getters
-   int getSize() const;
-   string getType() const;
+   int getSize() ;
+   string getType() ;
 
    // methods section
-   bool operator==(Electronic &other) const;
-   bool operator!=(Electronic &other) const;
+   bool operator==(Electronic &other) ;
+   bool operator!=(Electronic &other) ;
    friend ostream &operator<<(std::ostream &, Electronic &);
    friend istream &operator>>(std::istream &, Electronic &);
 };

@@ -112,17 +112,19 @@ int ProductList<T>::size()
 template <class T>
 void ProductList<T>::add_at(int index, int quantity, T t)
 {
-
+    
     if (head == NULL)
     {
         head = new Node<T>;
         head->setNext(NULL);
         head->setQuantity(quantity);
         head->setProduct(t);
+        return ;
     }
     else if (index == 0)
     {
         // add at first
+        cout << "Adding at first...";
         Node<T> *temp = new Node<T>;
         temp->setQuantity(quantity);
         temp->setProduct(t);
@@ -156,16 +158,19 @@ int ProductList<T>::index_of(T t)
 {
 
     if(head == NULL)
-    {
+    {   
+        
         //!cout <<"List is empty!\n";
         return -1;
     }
     Node<T>* current = head;
     int j=0;
+  
     while(current != NULL)
     {
-        if(current -> getProduct() == t)
-        {
+       
+        if(*t == *(current->getProduct()))
+        {   
             return j;
         }
         current = current->getNext();
@@ -226,25 +231,24 @@ void ProductList<T>::remove_at(int index)
 template <class T>
 Node<T> &ProductList<T>::operator[](int index)
 {
-    int n = this->size();
-    Node<T> *current = head;
-    if (head == nullptr)
-    {
-        cout << "sorry the list is empty" << endl;
-        Node<T> *newNode = new Node<T>();
+    if(head==NULL){
+        cout<<"empty list"<<endl;
+        Node<T>*newNode=new Node<T>();
         return *newNode;
     }
-    else if (index == 0)
-    {
-        return *head;
+
+    Node<T>*ptr=head;
+    int j=0;
+    while(ptr!=NULL && j<index){
+ptr=ptr->getNext();
+j++;
+
     }
-    else if (index > n-1)
-    {
-        return *head;
+    if(ptr==NULL){
+        cout<<"out of range"<<endl;
+        Node<T>*newNode=new Node<T>();
+        return *newNode;
+
     }
-    for (int i = 0; i < n; i++)
-    {
-        current = current->getNext();
-    }
-    return *current;
+    return *ptr;
 }
